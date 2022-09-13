@@ -20,6 +20,16 @@ main{
     text-shadow: 1px 1px 12px black;
 }
 
+.style_table{
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+}
+
+.box_table{
+    height: 75vh;
+    overflow: overlay;
+}
+
 footer{
     padding: .7rem 0;
     background-color:  rgb(229, 235, 235);;
