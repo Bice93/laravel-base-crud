@@ -10868,6 +10868,15 @@ header {
 
 main {
   height: calc(100vh - 78px - 55px);
+  overflow: auto;
+  background-color: rgb(105, 157, 176);
+}
+
+.title_homepage {
+  font-size: 5rem;
+  font-weight: 400;
+  color: rgb(255, 254, 254);
+  text-shadow: 1px 1px 12px black;
 }
 
 footer {
