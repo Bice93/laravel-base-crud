@@ -10855,3 +10855,22 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  padding: 0.7rem 0;
+  background-color: rgb(229, 235, 235);
+}
+
+main {
+  height: calc(100vh - 78px - 55px);
+}
+
+footer {
+  padding: 0.7rem 0;
+  background-color: rgb(229, 235, 235);
+}
