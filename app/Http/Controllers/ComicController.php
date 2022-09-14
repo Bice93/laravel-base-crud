@@ -53,7 +53,7 @@ class ComicController extends Controller
         //dd($lastId);
         $comic->save();
 
-        return redirect('comics.show', compact('comic'));
+        return redirect()->route('comics.show', $comic->id);
     }
 
     /**
