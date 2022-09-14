@@ -33,7 +33,12 @@
                         <label for="input-image" class="form-label">Image</label>
                         <input type="text" name="image_url" class="form-control" id="input-image">
                     </div>
-                    
+
+                    <div class="mb-3">
+                        <label for="input-price" class="form-label">Price</label>
+                        <input type="text" name="price" class="form-control" id="input-price">
+                    </div>
+
                     <div class="mb-3">
                         <label for="input-date" class="form-label">Date</label>
                         <input type="date" name="sale_date" class="form-control" id="input-date">
