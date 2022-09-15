@@ -20,6 +20,7 @@
                                 <td colspan="3"><a href="{{ route('comics.show', $comic->id) }}">{{ $comic->title }}</a></td>
                                 <td>{{ $comic->series }}</td>
                                 <td>{{ $comic->type }}</td>
+                                <td><a class="btn btn-sm btn-success" href="{{ route('comics.edit', $comic->id) }}">Modifica</a></td>
                             </tr>
                         @empty
                             <tr>
