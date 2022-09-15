@@ -20,7 +20,15 @@
                                 <td colspan="3"><a href="{{ route('comics.show', $comic->id) }}">{{ $comic->title }}</a></td>
                                 <td>{{ $comic->series }}</td>
                                 <td>{{ $comic->type }}</td>
-                                <td><a class="btn btn-sm btn-success" href="{{ route('comics.edit', $comic->id) }}">Modifica</a></td>
+                                <td>
+                                    <a class="btn btn-sm btn-success" href="{{ route('comics.edit', $comic->id) }}">EDIT</a>
+                                    <form class="d-inline" action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger">DELETE</button>
+                                    </form>
+                                </td>
+                                
                             </tr>
                         @empty
                             <tr>

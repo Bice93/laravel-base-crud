@@ -94,7 +94,7 @@ class ComicController extends Controller
         //dd($request->all());
         $data = $request->all();
         $comic = Comic::findOrFail($id);
-        
+
         $comic->title = $data['title'];
         $comic->series = $data['series'];
         $comic->type = $data['type'];
@@ -116,6 +116,11 @@ class ComicController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //dd($id);
+        $comic = Comic::findOrFail($id);
+        $comic->delete();
+       
+
+        return redirect()->route('comics.index');
     }
 }
