@@ -7,13 +7,13 @@
         <div class="row py-4">
             <div class="box_table">
                 <table class="table style_table">
-                    <thead class="table-light">
+                    <thead>
                         <th>ID</th>
                         <th colspan="3">Title</th>
                         <th>Series</th>
                         <th>Type</th>
                     </thead>
-                    <tbody>
+                    <tbody class="table-group-divider">
                         @forelse ($comics as $comic)
                             <tr>
                                 <td>{{ $comic->id }}</td>

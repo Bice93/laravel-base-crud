@@ -17,7 +17,8 @@
                             <h6 class="card-title"><span class="fw-normal">Genere:</span> {{ $comic->type }}</h6>
                             <p class="card-text"> {{ $comic->description }}</p>
                             <p class="card-text"><span class="fw-normal">Pubblicazione:</span> {{ $comic->sale_date }}</p>
-                            <p class="card-text"><small class="text-muted">€ {{ $comic->price }}</small></p>
+                            <p class="card-text d-inline"><small class="text-muted">€ {{ $comic->price }}</small></p>
+                            <p class="card-text d-inline float-end slug_style"><small class="text-muted"> {{ $comic->slug }}</small></p>
                         </div>
                     </div>
                 </div>
