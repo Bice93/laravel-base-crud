@@ -52,7 +52,7 @@ class ComicController extends Controller
         $comic->slug = Str::slug($comic->title, '-') . '-' . $lastId ;
         //dd($lastId);
         $comic->save();
-        return redirect()->route('comics.show', $comic->id);
+        return redirect()->route('comics.show', $comic->id)->with('created', $data['title']);
     }
 
     /**
@@ -104,7 +104,7 @@ class ComicController extends Controller
         $comic->slug = Str::slug($comic->title, '-') . '-' . $comic->id;
         $comic->save();
 
-        return redirect()->route('comics.show', $comic->id);
+        return redirect()->route('comics.show', $comic->id)->with('edited', $data['title']);
     }
 
     /**
@@ -120,6 +120,6 @@ class ComicController extends Controller
         $comic->delete();
        
 
-        return redirect()->route('comics.index');
+        return redirect()->route('comics.index')->with('delete', $comic->title);
     }
 }

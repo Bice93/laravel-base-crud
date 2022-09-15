@@ -5,6 +5,19 @@
 @section('main-content')
     <div class="container">
         <div class="row py-5">
+            @if (session('edited'))
+                <div class="alert alert-warning" role="alert">
+                    <h4 class="alert-heading">Well done!</h4>
+                    <hr>
+                    <p class="mb-0">{{ session('edited') }} has been successfully modified!</p>
+                </div>
+            @elseif (session('created'))
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Well done!</h4>
+                    <hr>
+                    <p class="mb-0">{{ session('created') }} was successfully created!</p>
+                </div>
+            @endif
             <div class="card p-0">
                 <div class="row g-0">
                     <div class="col-md-4 box-image-card">
@@ -18,7 +31,8 @@
                             <p class="card-text"> {{ $comic->description }}</p>
                             <p class="card-text"><span class="fw-normal">Pubblicazione:</span> {{ $comic->sale_date }}</p>
                             <p class="card-text d-inline"><small class="text-muted">€ {{ $comic->price }}</small></p>
-                            <p class="card-text d-inline float-end slug_style"><small class="text-muted"> {{ $comic->slug }}</small></p>
+                            <p class="card-text d-inline float-end slug_style"><small class="text-muted">
+                                    {{ $comic->slug }}</small></p>
                         </div>
                     </div>
                 </div>
