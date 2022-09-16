@@ -6,17 +6,28 @@
     <div class="container">
         <div class="row py-4">
             <div class="col-6 offset-md-3">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <form action="{{ route('comics.store') }}" method="POST">
                     @csrf
 
                     <div class="mb-3">
                         <label for="input-title" class="form-label">Title</label>
-                        <input type="text" placeholder="Insert the title of the comic..." name="title" class="form-control" id="input-title" required>
+                        <input type="text" placeholder="Insert the title of the comic..." name="title"
+                            class="form-control" id="input-title" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="input-series" class="form-label">Series</label>
-                        <input type="text" placeholder="Insert the series of the comic..." name="series" class="form-control" id="input-series" required>
+                        <input type="text" placeholder="Insert the series of the comic..." name="series"
+                            class="form-control" id="input-series" required>
                     </div>
 
                     <div class="mb-3">
@@ -33,17 +44,19 @@
 
                     <div class="mb-3">
                         <label for="textarea-description" class="form-label">Description</label>
-                        <textarea type="text" placeholder="Insert the description of the comic..." rows="7" name="description" class="form-control" id="textarea-description" required></textarea>
+                        <textarea type="text" placeholder="Insert the description of the comic..." rows="7" name="description"
+                            class="form-control" id="textarea-description" required></textarea>
                     </div>
 
                     <div class="mb-3">
                         <label for="input-image" class="form-label">Image</label>
-                        <input type="text"  name="image_url" class="form-control" id="input-image" required>
+                        <input type="text" name="image_url" class="form-control" id="input-image" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="input-price" class="form-label">Price</label>
-                        <input type="text" placeholder="Insert the price of the comic..." name="price" class="form-control" id="input-price" required>
+                        <input type="text" placeholder="Insert the price of the comic..." name="price"
+                            class="form-control" id="input-price" required>
                     </div>
 
                     <div class="mb-3">

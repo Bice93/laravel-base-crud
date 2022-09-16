@@ -9,6 +9,26 @@ use Illuminate\Support\Str;
 
 class ComicController extends Controller
 {
+    protected $validationRules = [
+        'title'=>'required|min:5|max:255|unique:comics',
+        'series' => 'required|min:5|max:255',
+        'type'=>'required|exists:comics,type',
+        'description'=> 'required|min:10',
+        'image_url'=> 'required|active_url',
+        'price'=>'required|numeric|min:3',
+        'sale_date'=> 'required|date|after:01/01/1990',
+    ];
+
+    protected $validationMessages =  [
+        'title.required' => 'Inserisci il titolo!',
+        'series.required' => 'Inserisci la serie!',
+        'type.required' => 'Inserisci il tipo!',
+        'description.required' => 'Inserisci la descrizione!',
+        'image_url.required' => 'Inserisci l\'immagine!',
+        'price.required' => 'Inserisci il prezzo!',
+        'sale_date.required' => 'Inserisci la data!',
+    ];
+
     /**
      * Display a listing of the resource.
      *
@@ -41,6 +61,7 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate($this->validationRules, $this->validationMessages);
         //Inserire i nuovi dati nel db
         $data = $request->all();
         $comic = new Comic();
@@ -54,7 +75,7 @@ class ComicController extends Controller
         $lastId = (Comic::orderBy('id', 'desc')->first()->id) + 1;
         $comic->slug = Str::slug($comic->title, '-') . '-' . $lastId ;
         //dd($lastId);
-        //dd($comic);
+        @dump($comic);
         $comic->save();
         return redirect()->route('comics.show', $comic->id)->with('created', $data['title']);
     }
@@ -98,6 +119,7 @@ class ComicController extends Controller
     {
         //dd($request->all());
         $data = $request->all();
+        $validatedData = $request->validate($this->validationRules, $this->validationMessages);
         $comic = Comic::findOrFail($id);
 
         $comic->title = $data['title'];
