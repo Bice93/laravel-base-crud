@@ -21,7 +21,14 @@
 
                     <div class="mb-3">
                         <label for="input-type" class="form-label">Type</label>
-                        <input type="text" name="type" class="form-control" id="input-type" required>
+                        {{-- <input type="text" name="type" class="form-control" id="input-type" required> --}}
+                        <select class="d-block" name="type" id="input-type">
+                            @foreach ($types as $type)
+                                <option value="{{ $type->name_type }}">
+                                    {{ ucwords($type->name_type) }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="mb-3">

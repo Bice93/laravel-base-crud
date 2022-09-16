@@ -22,7 +22,14 @@
 
                     <div class="mb-3">
                         <label for="input-type" class="form-label">Type</label>
-                        <input type="text" name="type" value="{{ $comic->type }}" class="form-control" id="input-type">
+                        {{-- <input type="text" name="type" value="{{ $comic->type }}" class="form-control" id="input-type"> --}}
+                        <select class="d-block" name="type" id="input-type">
+                            @foreach ($types as $type)
+                                <option value="{{ $type->name_type }}" {{ $type->name_type == $comic->type ? 'selected' : '' }}>
+                                    {{ ucwords($type->name_type) }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="mb-3">
