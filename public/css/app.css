@@ -10872,6 +10872,13 @@ main {
   background-color: rgb(105, 157, 176);
 }
 
+.style_error_message {
+  height: 0.9rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.7rem;
+}
+
 .title_homepage {
   font-size: 5rem;
   font-weight: 400;
